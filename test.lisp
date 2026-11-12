@@ -12,7 +12,7 @@ reads well (WCAG contrast of text, comments, selection, mode line and search), a
 outside the theme definitions.")
 
 (defparameter *themes-root* (make-pathname :name nil :type nil :defaults *load-truename*)
-  "The folder of the themes package: its files are read to check where colours are written.")
+  "The directory of the themes package: its files are read to check where colours are written.")
 
 (defparameter *theme-names*
   '(catppuccin-mocha catppuccin-latte dracula nord one-dark solarized-dark solarized-light

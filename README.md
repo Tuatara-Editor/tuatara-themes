@@ -94,11 +94,11 @@ here. Every project licenses it under the MIT license; the notices are in
 Not included: Gruvbox. Its repository
 ([morhetz/gruvbox](https://github.com/morhetz/gruvbox)) has no licence file,
 only a line in its README that says MIT/X11, with no copyright notice to keep
-with copies. Solarized uses its original green (`#859900`), as the palette
-table in its repository gives it, not the brighter one the Vim port tries.
-Solarized's text is its emphasised colour (`base1` on dark, `base01` on
-light), since its body colour reads at only 4.1:1. Catppuccin's Frappe and Macchiato, Rose Pine Moon, Kanagawa Dragon and Lotus
-and Solarized's other variants are left out.
+with copies. Solarized uses its original green (`#859900`), as the palette table
+in its repository gives it, not the brighter one the Vim port tries. Solarized's
+text is its emphasised colour (`base1` on dark, `base01` on light), since its
+body colour reads at only 4.1:1. Catppuccin's Frappe and Macchiato, Rose Pine
+Moon, Kanagawa Dragon and Lotus and Solarized's other variants are left out.
 
 ## Tests
 
@@ -118,7 +118,7 @@ tools/test.sh
 ```
 
 runs its tests against a Tuatara source tree: `../tuatara` beside this
-repository, or `../../tuatara` beside the folder it is in, unless
+repository, or `../../tuatara` beside the directory it is in, unless
 `TUATARA_SOURCE` names another. How a package is laid out and which of
 Tuatara's names it may use are in Tuatara's
 [HACKING.org](https://github.com/Tuatara-Editor/tuatara/blob/main/HACKING.org);
