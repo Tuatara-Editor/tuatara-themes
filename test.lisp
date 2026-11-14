@@ -212,3 +212,10 @@ the rest, a comment's the least *LOW-COMMENTS* allows for NAME."
     (dolist (name *theme-names*)
       (true (search (format nil "`~(~a~)`" name) readme) "README.md does not name ~a" name)))
   (true (probe-file (merge-pathnames "NOTICE" *themes-root*))))
+
+(define-test (themes colours-mixed-by-the-editor)
+  ;; the package defines its themes and mixes their colours through the editor's names, not copies of them
+  (let ((source (alexandria:read-file-into-string (merge-pathnames "themes.lisp" *themes-root*))))
+    (false (search "tuatara-user:" source))
+    (is eq 'tuatara.display:mix-colours (find-symbol "MIX-COLOURS" "THEMES"))
+    (is eq 'tuatara.display:colour-hex (find-symbol "COLOUR-HEX" "THEMES"))))

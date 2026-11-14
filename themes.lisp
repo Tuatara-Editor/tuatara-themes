@@ -1,6 +1,6 @@
 ;;;; themes.lisp --- Popular colour themes for Tuatara: Catppuccin, Dracula, Nord and others.
 ;;;; Copyright (C) 2026 Michael A Jones.  GPL-3.0-or-later; see LICENSE.
-;;;; Needs: Tuatara 0.90.20
+;;;; Needs: Tuatara 0.90.28
 ;;;;
 ;;;; A package, not part of the editor: loaded by (load-package "themes") in the
 ;;;; init file. Each theme is chosen by (load-theme 'NAME) or M-x load-theme;
@@ -17,33 +17,18 @@
 
 (in-package #:themes)
 
-;;; Colour arithmetic, run while a theme is compiled
+;;; Colour arithmetic, run while a theme is compiled: the colours are mixed by
+;;; MIX-COLOURS and written by COLOUR-HEX, as the editor's own themes are.
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
 
-  (defun hex-rgb (hex)
-    "The red, green and blue (0 to 255) of HEX, a string \"#rrggbb\", as a list."
-    (unless (and (stringp hex) (= (length hex) 7) (char= (char hex 0) #\#))
-      (error "~s is not a colour written #rrggbb." hex))
-    (list (parse-integer hex :start 1 :end 3 :radix 16)
-          (parse-integer hex :start 3 :end 5 :radix 16)
-          (parse-integer hex :start 5 :end 7 :radix 16)))
-
-  (defun rgb-hex (rgb)
-    "The string \"#rrggbb\" for RGB, a list of three numbers from 0 to 255, rounded."
-    (format nil "#~(~{~2,'0x~}~)" (mapcar (lambda (c) (max 0 (min 255 (round c)))) rgb)))
-
-  (defun mix-colours (from to amount)
-    "The colour AMOUNT (0 to 1) of the way from the colour FROM to the colour TO, both \"#rrggbb\"."
-    (rgb-hex (mapcar (lambda (a b) (+ a (* (- b a) amount))) (hex-rgb from) (hex-rgb to))))
-
   (defun relative-luminance (hex)
-    "How bright the colour HEX looks, from 0 (black) to 1 (white), as WCAG defines it."
+    "How bright the colour HEX, a string \"#rrggbb\", looks, from 0 (black) to 1 (white), as WCAG defines it."
     (destructuring-bind (r g b)
         (mapcar (lambda (c)
                   (let ((s (/ c 255d0)))
                     (if (<= s 0.03928d0) (/ s 12.92d0) (expt (/ (+ s 0.055d0) 1.055d0) 2.4d0))))
-                (hex-rgb hex))
+                (colour-components hex))
       (+ (* 0.2126d0 r) (* 0.7152d0 g) (* 0.0722d0 b))))
 
   (defun contrast-ratio (a b)
@@ -54,9 +39,9 @@
   (defun fit-contrast (colour grounds target)
     "COLOUR, moved toward white when it is lighter than the first of GROUNDS, toward black when it is darker,
 only as far as its contrast with each of GROUNDS reaches TARGET; as it was when it already does."
-    (let ((far (rgb-hex (if (>= (relative-luminance colour) (relative-luminance (first grounds)))
-                            '(255 255 255)
-                            '(0 0 0)))))
+    (let ((far (colour-hex (if (>= (relative-luminance colour) (relative-luminance (first grounds)))
+                               '(255 255 255)
+                               '(0 0 0)))))
       (loop for step from 0 to 20
             for candidate = (mix-colours colour far (/ step 20d0))
             when (every (lambda (ground) (>= (contrast-ratio candidate ground) target)) grounds) return candidate
@@ -125,7 +110,9 @@ role in ROLES (an alist of role and spec), or (mix A B AMOUNT) of two such names
       (typecase spec
         (symbol (let ((colour (assoc (symbol-name spec) colours :key #'symbol-name :test #'string-equal))
                       (role (assoc (symbol-name spec) roles :key #'symbol-name :test #'string-equal)))
-                  (cond (colour (second colour))
+                  (cond ((and colour (stringp (second colour)) (colour-components (second colour)))
+                         (second colour))
+                        (colour (error "Theme ~a: ~s is not a colour written #rrggbb." name (second colour)))
                         (role (again (second role)))
                         (t (error "Theme ~a: ~a is neither a colour nor a role." name spec)))))
         (cons (if (string-equal (symbol-name (first spec)) "mix")
@@ -154,7 +141,7 @@ a colour AMOUNT of the way from A to B. The roles of ao-dark that are not given
 are made from those that are (*DEFAULT-ROLES*), and the syntax roles, syn-keyword
 and the rest, colour the syntax faces. ITALIC-COMMENTS is true for a theme whose
 comments are italic."
-  `(tuatara-user:define-theme ,name ,doc
+  `(define-theme ,name ,doc
      :faces-from ao-dark
      :palette ,(theme-palette-entries name colours roles)
      ,@(mapcar (lambda (face) (list (first face) :fg (second face))) *syntax-faces*)
