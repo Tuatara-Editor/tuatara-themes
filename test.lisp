@@ -16,11 +16,13 @@ outside the theme definitions.")
 
 (defparameter *theme-names*
   '(catppuccin-mocha catppuccin-latte dracula nord one-dark solarized-dark solarized-light
-    tokyo-night tokyo-night-light rose-pine rose-pine-dawn everforest-dark everforest-light kanagawa-wave)
+    tokyo-night tokyo-night-light rose-pine rose-pine-dawn everforest-dark everforest-light kanagawa-wave
+    iroaseta)
   "Every theme the package defines, as README.md lists them.")
 
 (defparameter *theme-files*
-  '("catppuccin" "dracula" "nord" "one-dark" "solarized" "tokyo-night" "rose-pine" "everforest" "kanagawa")
+  '("catppuccin" "dracula" "nord" "one-dark" "solarized" "tokyo-night" "rose-pine" "everforest" "kanagawa"
+    "iroaseta")
   "The package's files that hold theme definitions, the only ones that may write colours.")
 
 (defparameter *low-comments*

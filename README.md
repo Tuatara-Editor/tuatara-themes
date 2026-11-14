@@ -19,9 +19,10 @@ you may know from other editors.
 | `everforest-dark` | Everforest, dark, medium contrast |
 | `everforest-light` | Everforest, light, medium contrast |
 | `kanagawa-wave` | Kanagawa Wave, dark |
+| `iroaseta` | Iroaseta, dark |
 
-Dracula, Nord and One Dark have no light version from their projects, so none
-is here.
+Dracula, Nord, One Dark and Iroaseta have no light version from their
+projects, so none is here.
 
 ## Loading it, step by step
 
@@ -77,7 +78,8 @@ The test lists them by name.
 
 Each palette is read from the project's own repository at the commit named
 here. Every project licenses it under the MIT license; the notices are in
-[NOTICE](NOTICE).
+[NOTICE](NOTICE). Iroaseta is by the author of this package, who made it for
+Helix; it is under this package's licence here.
 
 | Theme | Repository | Commit | Licence |
 |---|---|---|---|
@@ -90,6 +92,7 @@ here. Every project licenses it under the MIT license; the notices are in
 | Rose Pine | [rose-pine/neovim](https://github.com/rose-pine/neovim) (`lua/rose-pine/palette.lua`) | `ff483051a47e27d84bdef47703538df1ed9f4a47` | MIT, `LICENSE` |
 | Everforest | [sainnhe/everforest](https://github.com/sainnhe/everforest) (`autoload/everforest.vim`) | `85a86eb62409e3ec88713bff3d1b9d7374e112e4` | MIT, `LICENSE` |
 | Kanagawa | [rebelot/kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim) (`lua/kanagawa/colors.lua`) | `bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3` | MIT, `LICENSE` |
+| Iroaseta | [helix-editor/helix](https://github.com/helix-editor/helix) (`runtime/themes/iroaseta.toml`) | `e22bbf5489ba95b643b9751038046d736aa92ad1` | by the author of this package, GPL-3.0-or-later here |
 
 Not included: Gruvbox. Its repository
 ([morhetz/gruvbox](https://github.com/morhetz/gruvbox)) has no licence file,

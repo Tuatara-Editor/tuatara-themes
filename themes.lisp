@@ -151,5 +151,5 @@ comments are italic."
 ;;; The themes
 
 (dolist (file '("catppuccin" "dracula" "nord" "one-dark" "solarized" "tokyo-night" "rose-pine" "everforest"
-                "kanagawa"))
+                "kanagawa" "iroaseta"))
   (load-package-file (format nil "~a.lisp" file)))
