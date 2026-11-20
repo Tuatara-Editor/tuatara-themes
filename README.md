@@ -13,6 +13,11 @@ for contrast. The manual lists the theme names, says what a theme covers and
 how the contrast is checked, gives the repository and commit each palette was
 read from, and says how to pair a light and a dark theme.
 
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="media/themes-light.gif">
+  <img alt="A Python file shown in four themes, two dark and two light, chosen with load-theme, then switched between a light and a dark theme." src="media/themes.gif">
+</picture>
+
 ## What it needs
 
 - Tuatara 0.90.28 or later.
