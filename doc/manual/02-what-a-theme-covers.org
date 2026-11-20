@@ -1,0 +1,55 @@
+#+title: What a theme covers
+#+language: en
+
+* What a theme covers
+
+Which faces a theme colours, where the syntax colours come from, and how
+the contrast is checked.
+
+** The faces
+
+Every theme is made for the faces that Tuatara's own =ao-dark= theme colours,
+so no face is left in the colours of another theme. That is text, the mode
+line, selections, searches, completion, lists, diffs, diagnostics, Org, the
+calendar and every syntax face.
+
+A theme is a palette, as its project publishes it, and the roles that
+Tuatara's faces take from it. A role the theme does not name is made from the
+roles it does. Shades that the projects do not publish, such as the ground of
+an added line, are mixed from the theme's own colours.
+
+** The syntax colours
+
+They follow each project's own editor port:
+
+- Catppuccin and Rose Pine: the Neovim themes;
+- Dracula, Nord, One Dark, Solarized and Everforest: the Vim ones;
+- Tokyo Night: the VS Code theme;
+- Kanagawa: the Neovim theme.
+
+** The contrast
+
+Each theme is checked for contrast by WCAG's formula. Text, links, the
+selection, the mode line and the search highlight read at 4.5:1 or more.
+Comments, line numbers, the syntax colours and the smaller marks read at 3:1 or
+more.
+
+A colour that falls short in its project's palette is moved toward white or
+black, no further than it needs, so that it keeps its hue.
+
+Comments are the exception. Seven projects set them quiet on purpose: Solarized
+dark and light, Tokyo Night and Tokyo Night Light, Everforest Light, One Dark
+and Nord. Those stay as they are, only lifted to 2.5:1 where the project's own
+is lower. The package's test lists them by name.
+
+** Two choices in Solarized
+
+Solarized uses its original green (=#859900=), as the palette table in its
+repository gives it, not the brighter one the Vim port tries. Solarized's text
+is its emphasised colour (=base1= on dark, =base01= on light), since its body
+colour reads at only 4.1:1.
+
+** Your own changes
+
+Any =set-face= line in the init file stays on top of the theme. To see which
+faces exist and how a theme draws them, use =M-x list-faces=.

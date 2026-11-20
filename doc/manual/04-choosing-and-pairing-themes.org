@@ -1,0 +1,28 @@
+#+title: Choosing and pairing themes
+#+language: en
+
+* Choosing and pairing themes
+
+The editor's commands and settings that choose and pair themes.
+
+The package adds themes and nothing else: it has no command or setting of its
+own. These belong to Tuatara and work with every theme, these included.
+Tuatara's own manual describes them in the chapter on packages.
+
+** Choosing a theme
+
+=M-x load-theme= lists every theme, with a description beside each, and applies
+the one you choose. Called from the init file as =(load-theme 'NAME)=, it
+applies the theme at every start.
+
+** Pairing a light and a dark theme
+
+=M-x toggle-light-dark-theme= switches between a light and a dark theme. The
+settings name the pair. If the window follows the desktop's light or dark
+style, these are the two it switches between: =*light-theme*= and
+=*dark-theme*=, which are Tuatara's own two themes until you set them.
+
+#+begin_src lisp
+(setf *dark-theme* 'tokyo-night
+      *light-theme* 'tokyo-night-light)
+#+end_src

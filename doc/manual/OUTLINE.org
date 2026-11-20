@@ -1,0 +1,10 @@
+#+title: themes manual: chapters
+
+Each chapter covers one part of themes. The package adds colour themes and has
+no commands or settings of its own, so the last chapter lists the editor's
+commands and settings that choose and pair themes.
+
+1. What themes is
+2. What a theme covers
+3. Where the palettes come from
+4. Choosing and pairing themes
