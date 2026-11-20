@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src  'self'; img-src 'self' file:; script-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Choosing and pairing themes &ndash; themes Manual</title>
+<link rel="icon" href="tuatara.png">
+<link rel="stylesheet" href="manual.css">
+<script src="manual.js" defer></script>
+</head>
+<body>
+<div class="site">
+<nav class="toc" id="contents" aria-label="Contents">
+<strong>themes Manual</strong>
+<small>for Tuatara 0.90.28 and later</small>
+<p class="tools"><a href="all.html">All on one page</a>
+<button type="button" class="theme" hidden>Dark</button></p>
+<input type="search" placeholder="Search the manual" aria-label="Search the manual">
+<ol class="chapters"><li id="nav-index"><a href="index.html">0 Contents</a></li><li id="nav-01-what-themes-is"><a href="01-what-themes-is.html">1 What themes is</a><ol><li><a href="01-what-themes-is.html#trying-a-theme">1.1 Trying a theme</a></li><li><a href="01-what-themes-is.html#a-light-and-a-dark-theme">1.2 A light and a dark theme</a></li></ol></li><li id="nav-02-what-a-theme-covers"><a href="02-what-a-theme-covers.html">2 What a theme covers</a><ol><li><a href="02-what-a-theme-covers.html#the-faces">2.1 The faces</a></li><li><a href="02-what-a-theme-covers.html#the-syntax-colours">2.2 The syntax colours</a></li><li><a href="02-what-a-theme-covers.html#the-contrast">2.3 The contrast</a></li><li><a href="02-what-a-theme-covers.html#two-choices-in-solarized">2.4 Two choices in Solarized</a></li><li><a href="02-what-a-theme-covers.html#your-own-changes">2.5 Your own changes</a></li></ol></li><li id="nav-03-where-the-palettes-come-from"><a href="03-where-the-palettes-come-from.html">3 Where the palettes come from</a><ol><li><a href="03-where-the-palettes-come-from.html#not-included">3.1 Not included</a></li></ol></li><li id="nav-04-choosing-and-pairing-themes" class="here"><a class="here" href="04-choosing-and-pairing-themes.html">4 Choosing and pairing themes</a><ol><li><a href="04-choosing-and-pairing-themes.html#choosing-a-theme">4.1 Choosing a theme</a></li><li><a href="04-choosing-and-pairing-themes.html#pairing-a-light-and-a-dark-theme">4.2 Pairing a light and a dark theme</a></li></ol></li></ol>
+</nav>
+<main>
+<article>
+<div class="node"><span>Previous: <a href="03-where-the-palettes-come-from.html">Where the palettes come from</a></span><span>Up: <a href="index.html">Contents</a></span></div>
+<h1 id="choosing-and-pairing-themes">Choosing and pairing themes</h1>
+<p class="lead">The editor's commands and settings that choose and pair themes.</p>
+<p>The package adds themes and nothing else: it has no command or setting of its
+own. These belong to Tuatara and work with every theme, these included.
+Tuatara's own manual describes them in the chapter on packages.</p>
+<h2 id="choosing-a-theme"><span class="num">4.1</span> Choosing a theme</h2>
+<p><code>M-x load-theme</code> lists every theme, with a description beside each, and applies
+the one you choose. Called from the init file as <code>(load-theme 'NAME)</code>, it
+applies the theme at every start.</p>
+<h2 id="pairing-a-light-and-a-dark-theme"><span class="num">4.2</span> Pairing a light and a dark theme</h2>
+<p><code>M-x toggle-light-dark-theme</code> switches between a light and a dark theme. The
+settings name the pair. If the window follows the desktop's light or dark
+style, these are the two it switches between: <code>*light-theme*</code> and
+<code>*dark-theme*</code>, which are Tuatara's own two themes until you set them.</p>
+<pre class="ex"><code class="language-lisp">(setf *dark-theme* 'tokyo-night
+      *light-theme* 'tokyo-night-light)
+</code></pre>
+<div class="node end"><span>Previous: <a href="03-where-the-palettes-come-from.html">Where the palettes come from</a></span><span>Up: <a href="index.html">Contents</a></span></div>
+</article>
+</main>
+</div>
+</body>
+</html>
