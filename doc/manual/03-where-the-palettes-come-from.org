@@ -1,0 +1,32 @@
+#+title: Where the palettes come from
+#+language: en
+
+* Where the palettes come from
+
+The repository and commit each palette was read from, and the licences.
+
+Each palette is read from the project's own repository at the commit named in
+the table. Every project licenses it under the MIT license, and the notices are
+in the =NOTICE= file at the top of the package's repository. Iroaseta is by the
+author of this package, who made it for Helix. It is under this package's
+licence here.
+
+| Theme       | Repository | Commit | Licence |
+|-------------+------------+--------+---------|
+| Catppuccin  | [[https://github.com/catppuccin/palette][catppuccin/palette]] (=palette.json=), syntax from [[https://github.com/catppuccin/nvim][catppuccin/nvim]] | =07d02aa110ef9eb7e7427afca5c73ba9cf7f8ebd=, =edefef779ab08ce1a4a404713e3012b0d202bd35= | MIT, =LICENSE=, =LICENSE.md= |
+| Dracula     | [[https://github.com/dracula/vim][dracula/vim]] (=autoload/dracula.vim=) | =c689958744a93851b870e17ede7e9cbd28bc7cf8= | MIT, =LICENSE= |
+| Nord        | [[https://github.com/nordtheme/vim][nordtheme/vim]] (=colors/nord.vim=) | =f13f5dfbb784deddbc1d8195f34dfd9ec73e2295= | MIT, =license= |
+| One Dark    | [[https://github.com/joshdick/onedark.vim][joshdick/onedark.vim]] (=autoload/onedark.vim=) | =47bec7a6196a843dad195d2666c3ac84c6e80c78= | MIT, =LICENSE= |
+| Solarized   | [[https://github.com/altercation/vim-colors-solarized][altercation/vim-colors-solarized]] (=colors/solarized.vim=), licence from [[https://github.com/altercation/solarized][altercation/solarized]] | =528a59f26d12278698bb946f8fb82a63711eec21=, =62f656a02f93c5190a8753159e34b385588d5ff3= | MIT, =LICENSE= |
+| Tokyo Night | [[https://github.com/enkia/tokyo-night-vscode-theme][enkia/tokyo-night-vscode-theme]] (=themes/*.json=) | =7c0f11eaef322f293621ca7befe462214b7ea468= | MIT, =LICENSE.txt= |
+| Rose Pine   | [[https://github.com/rose-pine/neovim][rose-pine/neovim]] (=lua/rose-pine/palette.lua=) | =ff483051a47e27d84bdef47703538df1ed9f4a47= | MIT, =LICENSE= |
+| Everforest  | [[https://github.com/sainnhe/everforest][sainnhe/everforest]] (=autoload/everforest.vim=) | =85a86eb62409e3ec88713bff3d1b9d7374e112e4= | MIT, =LICENSE= |
+| Kanagawa    | [[https://github.com/rebelot/kanagawa.nvim][rebelot/kanagawa.nvim]] (=lua/kanagawa/colors.lua=) | =bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3= | MIT, =LICENSE= |
+| Iroaseta    | [[https://github.com/helix-editor/helix][helix-editor/helix]] (=runtime/themes/iroaseta.toml=) | =e22bbf5489ba95b643b9751038046d736aa92ad1= | by the author of this package, GPL-3.0-or-later here |
+
+** Not included
+
+Gruvbox is not here. Its repository
+([[https://github.com/morhetz/gruvbox][morhetz/gruvbox]]) has no licence file,
+only a line in its README that says MIT/X11, with no copyright notice to keep
+with copies.

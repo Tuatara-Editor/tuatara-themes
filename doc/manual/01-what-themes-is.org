@@ -1,0 +1,59 @@
+#+title: What themes is
+#+language: en
+
+* What themes is
+
+A package of popular colour themes for Tuatara, each a dark or light version of
+a palette you may know from other editors.
+
+The package has fifteen themes. Each is chosen by its name, which
+=M-x load-theme= and =(load-theme 'NAME)= take.
+
+| Name (for =load-theme=) | Palette                           |
+|-------------------------+-----------------------------------|
+| =catppuccin-mocha=      | Catppuccin Mocha, dark            |
+| =catppuccin-latte=      | Catppuccin Latte, light           |
+| =dracula=               | Dracula, dark                     |
+| =nord=                  | Nord, dark                        |
+| =one-dark=              | One Dark, dark                    |
+| =solarized-dark=        | Solarized, dark                   |
+| =solarized-light=       | Solarized, light                  |
+| =tokyo-night=           | Tokyo Night, dark                 |
+| =tokyo-night-light=     | Tokyo Night Light, light          |
+| =rose-pine=             | Rose Pine, dark                   |
+| =rose-pine-dawn=        | Rose Pine Dawn, light             |
+| =everforest-dark=       | Everforest, dark, medium contrast |
+| =everforest-light=      | Everforest, light, medium contrast |
+| =kanagawa-wave=         | Kanagawa Wave, dark               |
+| =iroaseta=              | Iroaseta, dark                    |
+
+Dracula, Nord, One Dark and Iroaseta have no light version from their projects,
+so none is here. Catppuccin's Frappe and Macchiato, Rose Pine Moon, Kanagawa
+Dragon and Lotus and Solarized's other variants are left out.
+
+It is a package, not part of the editor, and it needs no program.
+
+** Trying a theme
+
+Once the package is loaded, =M-x load-theme= lists every theme, these included,
+and applies the one you choose. To have one at every start, put it after the
+package line in the init file:
+
+#+begin_src lisp
+(load-package "themes" :source "https://github.com/Tuatara-Editor/tuatara-themes")
+(load-theme 'catppuccin-mocha)
+#+end_src
+
+** A light and a dark theme
+
+A pair of a light and a dark theme is what =toggle-light-dark-theme= switches
+between, and what the window follows when it follows the desktop's light or
+dark style:
+
+#+begin_src lisp
+(setf *dark-theme* 'tokyo-night
+      *light-theme* 'tokyo-night-light)
+#+end_src
+
+Your own =set-face= lines in the init file stay on top of any theme. Chapter 4
+lists the commands and settings.
