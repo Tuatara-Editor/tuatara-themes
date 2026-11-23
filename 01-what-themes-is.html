@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src  'self'; img-src 'self' file:; script-src 'self'; base-uri 'none'; form-action 'none'">
+<title>What themes is &ndash; themes Manual</title>
+<link rel="icon" href="tuatara.png">
+<link rel="stylesheet" href="manual.css">
+<script src="manual.js" defer></script>
+</head>
+<body>
+<div class="site">
+<nav class="toc" id="contents" aria-label="Contents">
+<strong>themes Manual</strong>
+<small>for Tuatara 0.90.28 and later</small>
+<p class="tools"><a href="all.html">All on one page</a>
+<button type="button" class="theme" hidden>Dark</button></p>
+<input type="search" placeholder="Search the manual" aria-label="Search the manual">
+<ol class="chapters"><li id="nav-index"><a href="index.html">0 Contents</a></li><li id="nav-01-what-themes-is" class="here"><a class="here" href="01-what-themes-is.html">1 What themes is</a><ol><li><a href="01-what-themes-is.html#trying-a-theme">1.1 Trying a theme</a></li><li><a href="01-what-themes-is.html#a-light-and-a-dark-theme">1.2 A light and a dark theme</a></li></ol></li><li id="nav-02-what-a-theme-covers"><a href="02-what-a-theme-covers.html">2 What a theme covers</a><ol><li><a href="02-what-a-theme-covers.html#the-faces">2.1 The faces</a></li><li><a href="02-what-a-theme-covers.html#the-syntax-colours">2.2 The syntax colours</a></li><li><a href="02-what-a-theme-covers.html#the-contrast">2.3 The contrast</a></li><li><a href="02-what-a-theme-covers.html#two-choices-in-solarized">2.4 Two choices in Solarized</a></li><li><a href="02-what-a-theme-covers.html#your-own-changes">2.5 Your own changes</a></li></ol></li><li id="nav-03-where-the-palettes-come-from"><a href="03-where-the-palettes-come-from.html">3 Where the palettes come from</a><ol><li><a href="03-where-the-palettes-come-from.html#not-included">3.1 Not included</a></li></ol></li><li id="nav-04-choosing-and-pairing-themes"><a href="04-choosing-and-pairing-themes.html">4 Choosing and pairing themes</a><ol><li><a href="04-choosing-and-pairing-themes.html#choosing-a-theme">4.1 Choosing a theme</a></li><li><a href="04-choosing-and-pairing-themes.html#pairing-a-light-and-a-dark-theme">4.2 Pairing a light and a dark theme</a></li></ol></li></ol>
+</nav>
+<main>
+<article>
+<div class="node"><span>Next: <a href="02-what-a-theme-covers.html">What a theme covers</a></span><span>Up: <a href="index.html">Contents</a></span></div>
+<h1 id="what-themes-is">What themes is</h1>
+<p class="lead">A package of popular colour themes for Tuatara, each a dark or light version of
+a palette you may know from other editors.</p>
+<p>The package has fifteen themes. Each is chosen by its name, which
+<code>M-x load-theme</code> and <code>(load-theme 'NAME)</code> take.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr><th>Name (for <code>load-theme</code>)</th><th>Palette</th></tr>
+</thead>
+<tbody>
+<tr><td><code>catppuccin-mocha</code></td><td>Catppuccin Mocha, dark</td></tr>
+<tr><td><code>catppuccin-latte</code></td><td>Catppuccin Latte, light</td></tr>
+<tr><td><code>dracula</code></td><td>Dracula, dark</td></tr>
+<tr><td><code>nord</code></td><td>Nord, dark</td></tr>
+<tr><td><code>one-dark</code></td><td>One Dark, dark</td></tr>
+<tr><td><code>solarized-dark</code></td><td>Solarized, dark</td></tr>
+<tr><td><code>solarized-light</code></td><td>Solarized, light</td></tr>
+<tr><td><code>tokyo-night</code></td><td>Tokyo Night, dark</td></tr>
+<tr><td><code>tokyo-night-light</code></td><td>Tokyo Night Light, light</td></tr>
+<tr><td><code>rose-pine</code></td><td>Rose Pine, dark</td></tr>
+<tr><td><code>rose-pine-dawn</code></td><td>Rose Pine Dawn, light</td></tr>
+<tr><td><code>everforest-dark</code></td><td>Everforest, dark, medium contrast</td></tr>
+<tr><td><code>everforest-light</code></td><td>Everforest, light, medium contrast</td></tr>
+<tr><td><code>kanagawa-wave</code></td><td>Kanagawa Wave, dark</td></tr>
+<tr><td><code>iroaseta</code></td><td>Iroaseta, dark</td></tr>
+</tbody></table></div>
+<p>Dracula, Nord, One Dark and Iroaseta have no light version from their projects,
+so none is here. Catppuccin's Frappe and Macchiato, Rose Pine Moon, Kanagawa
+Dragon and Lotus and Solarized's other variants are left out.</p>
+<p>It is a package, not part of the editor, and it needs no program.</p>
+<h2 id="trying-a-theme"><span class="num">1.1</span> Trying a theme</h2>
+<p>Once the package is loaded, <code>M-x load-theme</code> lists every theme, these included,
+and applies the one you choose. To have one at every start, put it after the
+package line in the init file:</p>
+<pre class="ex"><code class="language-lisp">(load-package &quot;themes&quot; :source &quot;https://github.com/Tuatara-Editor/tuatara-themes&quot;)
+(load-theme 'catppuccin-mocha)
+</code></pre>
+<h2 id="a-light-and-a-dark-theme"><span class="num">1.2</span> A light and a dark theme</h2>
+<p>A pair of a light and a dark theme is what <code>toggle-light-dark-theme</code> switches
+between, and what the window follows when it follows the desktop's light or
+dark style:</p>
+<pre class="ex"><code class="language-lisp">(setf *dark-theme* 'tokyo-night
+      *light-theme* 'tokyo-night-light)
+</code></pre>
+<p>Your own <code>set-face</code> lines in the init file stay on top of any theme. Chapter 4
+lists the commands and settings.</p>
+<div class="node end"><span>Next: <a href="02-what-a-theme-covers.html">What a theme covers</a></span><span>Up: <a href="index.html">Contents</a></span></div>
+</article>
+</main>
+</div>
+</body>
+</html>
