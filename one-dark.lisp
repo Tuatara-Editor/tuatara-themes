@@ -6,7 +6,7 @@
 (in-package #:themes)
 
 (define-colour-theme one-dark
-  "One Dark, from Atom: a slate ground with soft red, green, yellow, blue, purple and cyan."
+  "One Dark: a slate ground with soft red, green, yellow, blue, purple and cyan."
   :italic-comments t
   :colours ((red "#e06c75") (dark-red "#be5046") (green "#98c379") (yellow "#e5c07b") (dark-yellow "#d19a66")
             (blue "#61afef") (purple "#c678dd") (cyan "#56b6c2") (white "#abb2bf") (black "#282c34")
